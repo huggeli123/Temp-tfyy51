@@ -2,6 +2,7 @@
 
 This repository contains material for the TFYY51 project course (Ingenjörsprojektet) at Linköping University. The task is **CT image denoising**.
 
+---
 
 ## Environment Setup
 
