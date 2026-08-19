@@ -2,6 +2,92 @@
 
 This repository contains material for the TFYY51 project course (Ingenjörsprojektet) at Linköping University. The task is **CT image denoising**.
 
+
+## Environment Setup
+
+This repository uses a Conda environment defined in:
+
+```text
+environment.yml
+```
+
+The environment contains the Python packages needed to run the project notebooks and training code.
+
+
+### 2. Create the environment
+
+Open a terminal in the root of the repository, where `environment.yml` is located.
+
+Run:
+
+```bash
+conda env create -f environment.yml
+```
+
+This creates the project environment.
+
+The environment only needs to be created once.
+
+### 3. Activate the environment
+
+Activate it with:
+
+```bash
+conda activate tfyy51
+```
+
+When the environment is active, the terminal should show something similar to:
+
+```text
+(tfyy51) user@computer:~/path/to/tfyy51$
+```
+
+Each time you open a new terminal, activate the environment again using:
+
+```bash
+conda activate tfyy51
+```
+
+### 4. Select the environment in VS Code / Jupyter
+
+When opening a Jupyter notebook in VS Code:
+
+1. Open the notebook.
+2. Click the kernel selector in the top-right corner.
+3. Select the Python environment named `tfyy51`.
+
+Make sure the notebook is using the same environment that was created from `environment.yml`.
+
+### 5. Check that the environment is active
+
+You can list the available Conda environments with:
+
+```bash
+conda info --envs
+```
+
+The active environment is marked with `*`.
+
+For example:
+
+```text
+# conda environments:
+#
+base                     /home/user/miniconda3
+tfyy51                *  /home/user/miniconda3/envs/tfyy51
+```
+
+You can also check which Python executable is being used:
+
+```bash
+which python
+```
+
+It should point to the `tfyy51` Conda environment.
+
+---
+
+
 ## Repository structure
 
 ```text
