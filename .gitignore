@@ -1,0 +1,7 @@
+.idea/
+*__pycache__/
+*.ipynb_checkpoints/
+*.tar
+ct_data*
+!ct_data.zip
+results/

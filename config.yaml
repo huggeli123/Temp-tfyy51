@@ -1,0 +1,71 @@
+seed: 42
+
+data:
+  root: ct_data
+  image_size: null
+
+
+noise:
+  # Training and validation use the same noise level
+  train_val_std: 0.3 #Change between 0.01 to 0.4
+
+  # Can be changed independently for testing
+  test_std: 0.3
+
+
+model: # Options: [linear, nonlinear, residual_cnn, simple_cnn, unet]
+  name: unet
+
+  # Number of feature maps/channels in hidden layers.
+  # Ignored only by the linear model.
+  channels: 32
+
+  # Controls how deep the network is.
+  # Ignored by linear and nonlinear models.
+  depth: 3
+
+  # Convolutional filter/kernel size.
+  # Recommended: 3, 5, or 7
+  kernel_size: 3
+
+  # Options: [relu, leaky_relu, gelu, elu, silu, tanh]
+  # Ignored by the linear model.
+  activation: relu
+
+  # Options: [none, batch, instance, group]
+  # Ignored by the linear model.
+  normalization: none
+
+  # Only used for group normalization
+  num_groups: 4
+
+
+augmentation:
+  enabled: true
+
+  horizontal_flip: true
+  horizontal_flip_probability: 0.5
+
+  # Random rotation between -10 and +10 degrees
+  rotation_degrees: 10
+
+training:
+  epochs: 10
+  batch_size: 16
+  num_workers: 0
+
+  # Options: [adam, adamw, sgd]
+  optimizer: adam
+  
+  
+  learning_rate: 0.001
+  weight_decay: 0.0
+
+  # Options: [mse, l1, smooth_l1]
+  loss: mse
+
+
+output:
+  directory: outputs
+  save_best_model: true
+  save_example_images: true
