@@ -56,7 +56,7 @@ class CTDenoisingDataset(Dataset):
         self.horizontal_flip_probability = horizontal_flip_probability
         self.rotation_degrees = rotation_degrees
 
-        self.clean_dir = (
+        self.split_dir = (
             self.root_dir
             / split
         )
@@ -72,7 +72,7 @@ class CTDenoisingDataset(Dataset):
 
         self.clean_images = sorted([
             path
-            for path in self.clean_dir.iterdir()
+            for path in self.split_dir.iterdir()
             if path.is_file()
             and path.suffix.lower() in IMAGE_EXTENSIONS
         ])
