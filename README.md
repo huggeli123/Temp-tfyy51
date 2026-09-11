@@ -4,7 +4,26 @@ This repository contains material for the TFYY51 project course (Ingenjörsproje
 
 ---
 
-## Environment Setup
+### 1. Install Conda
+Place the file `Miniforge3-Linux-x86_64.sh` in your student home folder. Open a terminal in that folder and run 
+```bash
+ bash Miniforge3-Linux-x86_64.sh
+ ```
+
+This will run the installer. It will ask several things:
+
+- Accept the terms: Hit Enter
+- Down arrow a bunch of times, type yes to accept.
+- Confirm the install location: type yes.
+  - This will make a big fodler that you will never have to find or click
+  - We do not recommend installing this in the project folder though. Could end up messy.
+- Confirm you want it to modify your terminal: type yes.
+  - There is no downside to this if you are not a bleeding edge python dev.
+- The next terminal you open should show `(base)` before the usual terminal handles.
+- ???
+- Profit! 💰
+
+### 2. Create the environment
 
 This repository uses a Conda environment defined in:
 
@@ -13,9 +32,6 @@ environment.yml
 ```
 
 The environment contains the Python packages needed to run the project notebooks and training code.
-
-
-### 2. Create the environment
 
 Open a terminal in the root of the repository, where `environment.yml` is located.
 
