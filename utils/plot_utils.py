@@ -1,3 +1,4 @@
+import inspect
 import matplotlib.pyplot as plt
 import torch
 import numpy as np
@@ -72,7 +73,14 @@ def save_denoising_examples(
     # --------------------------------------------------------
 
     with torch.no_grad():
-        predictions = model(noisy_images)
+
+        if "sample" in inspect.signature(model.forward).parameters:
+            # Variational model: show the posterior-mean network
+            # (deterministic) and drop the returned KL term
+            predictions = model(noisy_images, sample=False)[0]
+
+        else:
+            predictions = model(noisy_images)
 
     # Move everything back to CPU for plotting
     noisy_images = noisy_images.cpu()
@@ -355,4 +363,108 @@ def plot_augmentation_examples(
     )
 
     plt.tight_layout()
+    plt.show()
+
+
+
+def plot_uncertainty_examples(
+    noisy_images,
+    clean_images,
+    predictive_mean,
+    epistemic_variance,
+    save_path=None,
+    num_images=4,
+):
+    """
+    Plot predictive mean and epistemic uncertainty.
+
+    Each row contains:
+        noisy input | predictive mean | clean target |
+        absolute error | epistemic std
+
+    The error and std maps are shown on a shared colour scale per
+    row (clipped at the 99.5th percentile), so they can be compared
+    directly. The std only reflects
+    variation between posterior weight samples; it is not
+    calibrated.
+    """
+
+    noisy_images = noisy_images.detach().cpu()
+    clean_images = clean_images.detach().cpu()
+    predictive_mean = predictive_mean.detach().cpu()
+    epistemic_std = epistemic_variance.detach().cpu().sqrt()
+
+    num_images = min(
+        num_images,
+        noisy_images.shape[0],
+    )
+
+    fig, axes = plt.subplots(
+        num_images,
+        5,
+        figsize=(17, 3.2 * num_images),
+    )
+
+    if num_images == 1:
+        axes = np.expand_dims(axes, axis=0)
+
+    for i in range(num_images):
+
+        noisy = noisy_images[i, 0].numpy()
+        clean = clean_images[i, 0].numpy()
+        mean = np.clip(predictive_mean[i, 0].numpy(), 0.0, 1.0)
+        error = np.abs(mean - clean)
+        std = epistemic_std[i, 0].numpy()
+
+        # Shared scale for the error and std maps of this row.
+        # A high percentile is used so a few outlier pixels do not
+        # make the rest of the map look black.
+        map_max = max(
+            np.percentile(np.concatenate([error.ravel(), std.ravel()]), 99.5),
+            1e-8,
+        )
+
+        panels = [
+            (noisy, "Noisy input", "gray", 1.0),
+            (mean, "Predictive mean", "gray", 1.0),
+            (clean, "Clean target", "gray", 1.0),
+            (error, "|mean - clean|", "magma", map_max),
+            (std, "Epistemic std", "magma", map_max),
+        ]
+
+        for j, (image, title, cmap, vmax) in enumerate(panels):
+
+            handle = axes[i, j].imshow(
+                image,
+                cmap=cmap,
+                vmin=0,
+                vmax=vmax,
+            )
+
+            axes[i, j].set_title(title)
+            axes[i, j].axis("off")
+
+            if cmap == "magma" and j == 4:
+                fig.colorbar(
+                    handle,
+                    ax=axes[i, 3:5],
+                    fraction=0.025,
+                    pad=0.02,
+                )
+
+    if save_path is not None:
+
+        save_path = Path(save_path)
+
+        save_path.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        plt.savefig(
+            save_path,
+            dpi=150,
+            bbox_inches="tight",
+        )
+
     plt.show()

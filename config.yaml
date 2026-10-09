@@ -13,7 +13,7 @@ noise:
   test_std: 0.3
 
 
-model: # Options: [linear, nonlinear, residual_cnn, simple_cnn, unet]
+model: # Options: [linear, nonlinear, residual_cnn, simple_cnn, unet, variational_simple_cnn]
   name: unet
 
   # Number of feature maps/channels in hidden layers.
@@ -63,6 +63,10 @@ training:
 
   # Options: [mse, l1, smooth_l1]
   loss: mse
+
+  # Only used by variational models (e.g. variational_simple_cnn).
+  # Weight beta on the KL term: loss = recon + kl_weight * KL / dataset_size
+  kl_weight: 1.0
 
 
 output:

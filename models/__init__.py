@@ -3,6 +3,7 @@ from .nonlinear import NonLinearModel
 from .simple_cnn import SimpleCNN
 from .residual_cnn import ResidualCNN
 from .unet import UNet
+from .variational_simple_cnn import VariationalSimpleCNN
 
 
 def create_model(config):
@@ -67,6 +68,20 @@ def create_model(config):
 
         return SimpleCNN(
             **model_args
+        )
+
+    elif model_name == "variational_simple_cnn":
+
+        return VariationalSimpleCNN(
+            **model_args,
+            prior_standard_deviation=config.get(
+                "prior_standard_deviation",
+                1.0,
+            ),
+            initial_rho=config.get(
+                "initial_rho",
+                -5.0,
+            ),
         )
 
     elif model_name == "residual_cnn":
