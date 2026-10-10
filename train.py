@@ -1,8 +1,20 @@
+import time
 from pathlib import Path
 import torch
 from tqdm.auto import tqdm
 from utils.metrics import calculate_psnr
 
+
+def _timestamp(device):
+    """
+    Wall-clock time in seconds. Waits for queued CUDA work first so
+    that GPU epochs are not under-measured.
+    """
+
+    if torch.device(device).type == "cuda":
+        torch.cuda.synchronize(device)
+
+    return time.perf_counter()
 
 
 
@@ -179,6 +191,7 @@ def train_model(
 
     train_psnrs = []
     val_psnrs = []
+    epoch_times = []
 
     best_val_loss = float("inf")
 
@@ -189,6 +202,8 @@ def train_model(
     )
 
     for epoch in epoch_bar:
+
+        epoch_start = _timestamp(device)
 
         # ----------------------------------------------------
         # Training
@@ -214,6 +229,8 @@ def train_model(
             device=device,
             description=f"Epoch {epoch + 1}/{epochs} - Val",
         )
+
+        epoch_times.append(_timestamp(device) - epoch_start)
 
         train_losses.append(train_loss)
         val_losses.append(val_loss)
@@ -249,6 +266,7 @@ def train_model(
         "val_loss": val_losses,
         "train_psnr": train_psnrs,
         "val_psnr": val_psnrs,
+        "epoch_time": epoch_times,
     }
 
     return history
@@ -454,6 +472,7 @@ def train_model_variational(
         "val_psnr": [],
         "train_total_loss": [],
         "train_kl": [],
+        "epoch_time": [],
     }
 
     best_val_loss = float("inf")
@@ -464,6 +483,8 @@ def train_model_variational(
     )
 
     for epoch in epoch_bar:
+
+        epoch_start = _timestamp(device)
 
         train_metrics = train_one_epoch_variational(
             model=model,
@@ -489,6 +510,7 @@ def train_model_variational(
 
         val_loss = val_metrics["reconstruction"]
 
+        history["epoch_time"].append(_timestamp(device) - epoch_start)
         history["train_loss"].append(train_metrics["reconstruction"])
         history["train_total_loss"].append(train_metrics["loss"])
         history["val_loss"].append(val_loss)

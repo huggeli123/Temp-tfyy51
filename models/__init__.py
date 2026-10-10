@@ -4,6 +4,8 @@ from .simple_cnn import SimpleCNN
 from .residual_cnn import ResidualCNN
 from .unet import UNet
 from .variational_simple_cnn import VariationalSimpleCNN
+from .variational_unet import VariationalUNet
+from .variational_partial_unet import VariationalPartialUNet
 
 
 def create_model(config):
@@ -81,6 +83,38 @@ def create_model(config):
             initial_rho=config.get(
                 "initial_rho",
                 -5.0,
+            ),
+        )
+
+    elif model_name == "variational_unet":
+
+        return VariationalUNet(
+            **model_args,
+            prior_standard_deviation=config.get(
+                "prior_standard_deviation",
+                1.0,
+            ),
+            initial_rho=config.get(
+                "initial_rho",
+                -5.0,
+            ),
+        )
+
+    elif model_name == "variational_partial_unet":
+
+        return VariationalPartialUNet(
+            **model_args,
+            prior_standard_deviation=config.get(
+                "prior_standard_deviation",
+                1.0,
+            ),
+            initial_rho=config.get(
+                "initial_rho",
+                -6.0,
+            ),
+            variational_decoder_levels=config.get(
+                "variational_decoder_levels",
+                1,
             ),
         )
 

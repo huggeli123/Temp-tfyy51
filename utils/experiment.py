@@ -79,6 +79,7 @@ def save_history(
         - best validation epoch
         - final training metrics
         - final test metrics
+        - total and mean per-epoch training time (train + validation)
     """
 
     run_dir = Path(run_dir)
@@ -90,6 +91,17 @@ def save_history(
     best_epoch_index = min(
         range(len(history["val_loss"])),
         key=lambda i: history["val_loss"][i],
+    )
+
+    # --------------------------------------------------------
+    # Runtime (older histories may not have epoch_time)
+    # --------------------------------------------------------
+
+    epoch_times = history.get("epoch_time", [])
+
+    total_training_time = sum(epoch_times) if epoch_times else None
+    mean_epoch_time = (
+        total_training_time / len(epoch_times) if epoch_times else None
     )
 
     # --------------------------------------------------------
@@ -107,6 +119,9 @@ def save_history(
 
         "test_loss": test_loss,
         "test_psnr": test_psnr,
+
+        "total_training_time_seconds": total_training_time,
+        "mean_epoch_time_seconds": mean_epoch_time,
     }
 
     # --------------------------------------------------------

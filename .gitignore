@@ -5,3 +5,4 @@
 ct_data*
 !ct_data.zip
 results/
+.venv/
