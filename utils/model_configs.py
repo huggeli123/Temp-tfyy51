@@ -145,5 +145,5 @@ def get_scheduler(scheduler_name, optimizer, epochs):
             )
     else:
         raise ValueError(
-            f"Unkown scheduler: {scheduler_name}"
+            f"Unknown scheduler: {scheduler_name}"
         )
