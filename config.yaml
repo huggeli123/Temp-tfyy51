@@ -74,6 +74,9 @@ training:
   batch_size: 16
   num_workers: 0
 
+  # Options: [none, cosine]
+  scheduler: none 
+
   # Options: [adam, adamw, sgd]
   optimizer: adam
   

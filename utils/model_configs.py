@@ -24,7 +24,6 @@ def get_loss(loss_name):
         raise ValueError(
             f"Unknown loss function: {loss_name}"
         )
-    
 
 # ============================================================
 # Optimizer
@@ -130,4 +129,21 @@ def get_optimizer(
     else:
         raise ValueError(
             f"Unknown optimizer: {optimizer_name}"
+        )
+
+# ===========================================================
+# Scheduler
+# ===========================================================
+
+def get_scheduler(scheduler_name, optimizer, epochs):
+    if (scheduler_name == "none"):
+        return None
+    elif (scheduler_name == "cosine"):
+        return torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=epochs,
+            )
+    else:
+        raise ValueError(
+            f"Unkown scheduler: {scheduler_name}"
         )

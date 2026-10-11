@@ -177,6 +177,7 @@ def train_model(
     epochs,
     output_dir="outputs",
     save_best_model=True,
+    scheduler=None
 ):
     """
     Train the model and evaluate on the validation set
@@ -192,6 +193,7 @@ def train_model(
     train_psnrs = []
     val_psnrs = []
     epoch_times = []
+    learning_rates = []
 
     best_val_loss = float("inf")
 
@@ -231,6 +233,9 @@ def train_model(
         )
 
         epoch_times.append(_timestamp(device) - epoch_start)
+        learning_rates.append(optimizer.param_groups[0]["lr"])
+        if (scheduler != None):
+            scheduler.step()
 
         train_losses.append(train_loss)
         val_losses.append(val_loss)
@@ -262,6 +267,7 @@ def train_model(
             )
 
     history = {
+        "learning_rates": learning_rates,
         "train_loss": train_losses,
         "val_loss": val_losses,
         "train_psnr": train_psnrs,
@@ -446,6 +452,7 @@ def train_model_variational(
     kl_weight=1.0,
     output_dir="outputs",
     save_best_model=True,
+    scheduler = None,
 ):
     """
     Variational counterpart of train_model.
@@ -473,6 +480,7 @@ def train_model_variational(
         "train_total_loss": [],
         "train_kl": [],
         "epoch_time": [],
+        "learning_rates": [],
     }
 
     best_val_loss = float("inf")
@@ -511,6 +519,9 @@ def train_model_variational(
         val_loss = val_metrics["reconstruction"]
 
         history["epoch_time"].append(_timestamp(device) - epoch_start)
+        history["learning_rates"].append(optimizer.param_groups[0]["lr"])
+        if scheduler != None:
+            scheduler.step()
         history["train_loss"].append(train_metrics["reconstruction"])
         history["train_total_loss"].append(train_metrics["loss"])
         history["val_loss"].append(val_loss)
