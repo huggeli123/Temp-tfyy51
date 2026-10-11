@@ -6,3 +6,6 @@ ct_data*
 !ct_data.zip
 results/
 .venv/
+
+# Personal editor settings (interpreter / environment manager choice)
+.vscode/settings.json

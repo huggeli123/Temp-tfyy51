@@ -1,0 +1,69 @@
+{
+    "run": "2026-10-10_15-41-13",
+    "model": "variational_unet",
+    "environment": {
+        "python": "3.14.0",
+        "torch": "2.11.0+cu128",
+        "device": "NVIDIA GeForce RTX 3060 Ti"
+    },
+    "parameters": {
+        "total": 3850050,
+        "variational_weights": 1925025
+    },
+    "posterior_std": {
+        "count": 1925025,
+        "min": 0.0003111523692496121,
+        "p05": 0.00039013390778563917,
+        "median": 0.0003958904417231679,
+        "p95": 0.0003959240566473454,
+        "max": 0.00041281836456619203,
+        "mean": 0.00039461214328184724
+    },
+    "test_mean_weights": {
+        "loss": 0.0009242714817325274,
+        "psnr": 30.502379608154296
+    },
+    "test_sampled_weights": {
+        "passes": 5,
+        "loss": 0.0009250009264796973,
+        "psnr": 30.498230585734053
+    },
+    "uncertainty": {
+        "samples": 30,
+        "images": 16,
+        "mean_epistemic_std": 0.0005595908733084798,
+        "mean_absolute_error": 0.011644277721643448,
+        "psnr_predictive_mean": 31.502843856811523,
+        "correlation_std_error": 0.6324106454849243
+    },
+    "noise_levels": [
+        {
+            "noise_std": 0.0,
+            "is_training_level": false,
+            "input_psnr": 100.0,
+            "predictive_mean_psnr": 31.627317428588867,
+            "mean_epistemic_std": 0.0006786460289731622
+        },
+        {
+            "noise_std": 0.1,
+            "is_training_level": false,
+            "input_psnr": 22.285736083984375,
+            "predictive_mean_psnr": 32.25065612792969,
+            "mean_epistemic_std": 0.0005611971137113869
+        },
+        {
+            "noise_std": 0.3,
+            "is_training_level": true,
+            "input_psnr": 13.13559341430664,
+            "predictive_mean_psnr": 31.609580993652344,
+            "mean_epistemic_std": 0.0006387964240275323
+        },
+        {
+            "noise_std": 0.5,
+            "is_training_level": false,
+            "input_psnr": 9.3436918258667,
+            "predictive_mean_psnr": 18.23092269897461,
+            "mean_epistemic_std": 0.0017299770843237638
+        }
+    ]
+}

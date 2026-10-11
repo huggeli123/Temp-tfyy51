@@ -39,17 +39,18 @@ model: # Options: [linear, nonlinear, residual_cnn, simple_cnn, unet, variationa
   # Only used for group normalization
   num_groups: 4
 
+  # The variational settings in this file are tuned for
+  # variational_partial_unet. How each value was chosen, and what the
+  # other variational models need, is explained in one place:
+  # docs/variational/06_hyperparameters.md
+
   # Only used by variational models.
-  # Std of the N(0, p^2) prior over every weight. Kept wide so the KL only
-  # acts on sigma and does not shrink the means (weight decay ~ beta/(p^2 N)).
+  # Std of the N(0, p^2) prior over every variational weight.
   prior_standard_deviation: 1.0
 
-  # Initial posterior std is sigma = softplus(rho) (~exp(rho) here).
-  # Measured on the trained UNet: noise on the last decoder block costs
-  # +0.5% loss at sigma 1e-3 and +7.7% at 3e-3, so start at 1.5e-3
-  # (rho -6.5) and let training adapt it (see training.rho_learning_rate).
-  # For the fully variational variational_unet use a much smaller value
-  # (about -8): its wide layers are far more sensitive to weight noise.
+  # Only used by variational models.
+  # Initial posterior std: sigma = softplus(rho), about exp(rho) here.
+  # More negative -> less weight noise. One value is used for all layers.
   initial_rho: -6.5
 
   # Only used by variational_partial_unet.
@@ -83,20 +84,17 @@ training:
   # Options: [mse, l1, smooth_l1]
   loss: mse
 
-  # Only used by variational models (e.g. variational_simple_cnn).
+  # Only used by variational models.
   # Weight beta on the KL term: loss = recon + kl_weight * KL / dataset_size
-  # recon is a per-pixel MEAN, so a properly scaled ELBO needs
-  # beta ~ 2*s^2 / pixels_per_image ~ 5e-8. 0.1 was ~1e6x too large.
-  # At equilibrium each weight's sigma balances recon curvature against
-  # the KL, and the total loss cost is ~ n_variational * beta / (2 * N)
-  # (N = training images). 1e-6 is a deliberately "warm" posterior:
-  # ~2% loss cost for visible, data-dependent uncertainty.
-  # Larger -> larger sigma, more uncertainty, worse MSE. 0 -> sigma shrinks.
+  # Useful values are tiny, not 0.1: recon is a per-pixel mean and the KL
+  # grows with the number of variational weights. Larger -> more weight
+  # noise and more uncertainty, but worse MSE.
+  # Read docs/variational/06_hyperparameters.md before changing it.
   kl_weight: 0.000001
 
-  # Only used by variational models. Separate learning rate for the
-  # posterior std parameters (rho). At the shared lr 1e-3, rho barely
-  # moves in a short run, so sigma stays at its initial value.
+  # Only used by variational models.
+  # Separate learning rate for the posterior std parameters (rho).
+  # Without it sigma stays close to initial_rho in a short run.
   # Remove or set to null to use learning_rate for rho as well.
   rho_learning_rate: 0.01
 

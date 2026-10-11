@@ -1,0 +1,104 @@
+{
+    "source_run": "2026-10-11_16-00-41",
+    "draws": 5,
+    "samples": 30,
+    "rows": [
+        {
+            "variational_decoder_levels": 0,
+            "variational_weights": 33,
+            "sigma": 0.0003,
+            "val_loss": 0.0008517477974916497,
+            "relative_increase": 0.0002117696944370362,
+            "mean_epistemic_std": 0.00038187167956493795
+        },
+        {
+            "variational_decoder_levels": 0,
+            "variational_weights": 33,
+            "sigma": 0.001,
+            "val_loss": 0.0008534193597733974,
+            "relative_increase": 0.0021746937817139766,
+            "mean_epistemic_std": 0.0015201809583231807
+        },
+        {
+            "variational_decoder_levels": 0,
+            "variational_weights": 33,
+            "sigma": 0.003,
+            "val_loss": 0.0008720724208590885,
+            "relative_increase": 0.02407907826463407,
+            "mean_epistemic_std": 0.003024212084710598
+        },
+        {
+            "variational_decoder_levels": 0,
+            "variational_weights": 33,
+            "sigma": 0.01,
+            "val_loss": 0.0011202717352037628,
+            "relative_increase": 0.3155407951821545,
+            "mean_epistemic_std": 0.011755024082958698
+        },
+        {
+            "variational_decoder_levels": 1,
+            "variational_weights": 27745,
+            "sigma": 0.0003,
+            "val_loss": 0.0008519073066612084,
+            "relative_increase": 0.00039908212334704984,
+            "mean_epistemic_std": 0.0005075846565887332
+        },
+        {
+            "variational_decoder_levels": 1,
+            "variational_weights": 27745,
+            "sigma": 0.001,
+            "val_loss": 0.0008541077805372575,
+            "relative_increase": 0.002983109785304139,
+            "mean_epistemic_std": 0.00175865413621068
+        },
+        {
+            "variational_decoder_levels": 1,
+            "variational_weights": 27745,
+            "sigma": 0.003,
+            "val_loss": 0.0008784432259077827,
+            "relative_increase": 0.03156034702857857,
+            "mean_epistemic_std": 0.0048325760290026665
+        },
+        {
+            "variational_decoder_levels": 1,
+            "variational_weights": 27745,
+            "sigma": 0.01,
+            "val_loss": 0.0013116370686329902,
+            "relative_increase": 0.5402620793123785,
+            "mean_epistemic_std": 0.01678248681128025
+        },
+        {
+            "variational_decoder_levels": 2,
+            "variational_weights": 138465,
+            "sigma": 0.0003,
+            "val_loss": 0.0008520236300925413,
+            "relative_increase": 0.0005356813202608279,
+            "mean_epistemic_std": 0.00040267588337883353
+        },
+        {
+            "variational_decoder_levels": 2,
+            "variational_weights": 138465,
+            "sigma": 0.001,
+            "val_loss": 0.0008550552957070371,
+            "relative_increase": 0.00409578166724911,
+            "mean_epistemic_std": 0.001807096297852695
+        },
+        {
+            "variational_decoder_levels": 2,
+            "variational_weights": 138465,
+            "sigma": 0.003,
+            "val_loss": 0.000902775080408901,
+            "relative_increase": 0.060133367495649015,
+            "mean_epistemic_std": 0.00570256682112813
+        },
+        {
+            "variational_decoder_levels": 2,
+            "variational_weights": 138465,
+            "sigma": 0.01,
+            "val_loss": 0.0011362704906302194,
+            "relative_increase": 0.3343282150324083,
+            "mean_epistemic_std": 0.019812550395727158
+        }
+    ],
+    "baseline_val_loss": 0.0008515674613105754
+}

@@ -102,6 +102,65 @@ which python
 
 It should point to the `tfyy51` Conda environment.
 
+### Alternative setup without Conda (your own computer)
+
+The Conda steps above are written for the Linux student computers. On your own machine, for example Windows with an NVIDIA GPU, a plain virtual environment works too.
+
+Open a terminal in the root of the repository and run:
+
+```bash
+python -m venv .venv
+```
+
+Activate it. On Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+On Linux or macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+**Only on Windows with an NVIDIA GPU:** install the CUDA build of PyTorch first. The default PyTorch for Windows runs on the CPU only.
+
+```bash
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+```
+
+Then install the rest:
+
+```bash
+pip install -r requirements.txt
+```
+
+Check that PyTorch can see the GPU:
+
+```bash
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
+In VS Code, select `.venv` as the notebook kernel instead of the Conda environment.
+
+`environment.yml` and `requirements.txt` list the same packages. If you add a package to one, add it to the other.
+
+### Keeping notebooks clean in git
+
+A notebook that has been run contains all its plots and printed output. Committing that makes the file a hundred times larger and causes merge conflicts.
+
+Run these two commands once, in the root of the repository, with the environment active:
+
+```bash
+nbstripout --install
+git config filter.nbstripout.extrakeys "metadata.kernelspec metadata.language_info.version"
+```
+
+After this, git stores notebooks without outputs and without the name of your personal kernel. The file on your disk is not changed, so you still see your results in the notebook.
+
+With the Conda environment, install the tool first with `pip install nbstripout`.
+
 ---
 
 
@@ -217,7 +276,12 @@ nonlinear
 simple_cnn
 residual_cnn
 unet
+variational_simple_cnn
+variational_unet
+variational_partial_unet
 ```
+
+The three `variational_*` models also estimate uncertainty. They are documented in [docs/variational/](docs/variational/README.md).
 
 ### `utils/`
 

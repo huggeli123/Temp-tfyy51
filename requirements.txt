@@ -1,0 +1,21 @@
+# pip / venv alternative to environment.yml. See "Alternative setup" in README.md.
+#
+# On Windows with an NVIDIA GPU, install the CUDA build of PyTorch BEFORE this
+# file, because the default Windows build from PyPI is CPU-only:
+#
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+#
+# On Linux and macOS the default build below is the right one.
+
+torch
+torchvision
+
+numpy
+matplotlib
+pyyaml
+tqdm
+
+jupyterlab
+
+# Strips notebook outputs on commit (see .gitattributes)
+nbstripout

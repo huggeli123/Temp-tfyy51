@@ -1,0 +1,6 @@
+# Notebooks are committed without outputs, execution counts or kernel
+# metadata, so diffs stay small and machine-specific settings stay local.
+# This takes effect after a one-time setup per clone; see "Keeping notebooks
+# clean in git" in README.md. Without that setup these lines do nothing.
+*.ipynb filter=nbstripout
+*.ipynb diff=ipynb

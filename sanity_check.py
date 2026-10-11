@@ -1,5 +1,6 @@
 """
-Sanity checks for the variational layers (guide section 9).
+Sanity checks for the variational layers (guide section 9) and for the
+variational models built from them.
 
 Run from the repository root:  python sanity_check.py
 """
@@ -7,8 +8,10 @@ Run from the repository root:  python sanity_check.py
 import torch
 from torch import nn
 
+from models import create_model
 from models.variational import (
     VariationalConv2d,
+    VariationalConvTranspose2d,
     VariationalLinear,
     positive_scale,
 )
@@ -76,6 +79,38 @@ def run_checks(name, layer, reference, x):
     )
 
 
+def run_model_checks(name, **extra_config):
+
+    print(f"\n--- {name} {extra_config or ''} ---")
+
+    model = create_model({
+        "name": name,
+        "channels": 8,
+        "depth": 3,
+        "kernel_size": 3,
+        **extra_config,
+    })
+
+    # A size that is not divisible by 2**depth, to exercise the resizing
+    # of the upsampled tensor before it is joined with the skip connection
+    x = torch.randn(2, 1, 37, 41)
+
+    prediction, kl = model(x)
+    check(prediction.shape == x.shape, "prediction has the shape of the input")
+    check(
+        kl.dim() == 0 and bool(torch.isfinite(kl)) and kl.item() > 0,
+        "KL is a finite positive scalar",
+    )
+
+    a, _ = model(x, sample=False)
+    b, _ = model(x, sample=False)
+    check(torch.equal(a, b), "sample=False is deterministic")
+
+    a, _ = model(x, sample=True)
+    b, _ = model(x, sample=True)
+    check(not torch.equal(a, b), "sample=True gives different outputs")
+
+
 def main():
     torch.manual_seed(0)
 
@@ -87,11 +122,27 @@ def main():
     )
 
     run_checks(
+        "VariationalConvTranspose2d",
+        VariationalConvTranspose2d(8, 4, 2, stride=2),
+        nn.ConvTranspose2d(8, 4, 2, stride=2),
+        torch.randn(4, 8, 16, 16),
+    )
+
+    run_checks(
         "VariationalLinear",
         VariationalLinear(5, 3),
         nn.Linear(5, 3),
         torch.randn(4, 7, 5),
     )
+
+    run_model_checks("variational_simple_cnn")
+    run_model_checks("variational_unet")
+
+    for levels in (0, 1, 3):
+        run_model_checks(
+            "variational_partial_unet",
+            variational_decoder_levels=levels,
+        )
 
     print("\nAll checks passed.")
 
