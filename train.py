@@ -134,8 +134,14 @@ def evaluate(
 
             noisy_images = noisy_images.to(device)
             clean_images = clean_images.to(device)
+            
 
             predictions = model(noisy_images)
+            predictions = torch.clamp(
+                predictions,
+                0.0,
+                1.0,
+            )
 
             loss = criterion(
                 predictions,
@@ -405,6 +411,11 @@ def evaluate_variational(
             clean_images = clean_images.to(device)
 
             predictions, kl = model(noisy_images, sample=sample)
+            predictions = torch.clamp(
+                predictions,
+                0.0,
+                1.0,
+            )
 
             reconstruction = criterion(
                 predictions,
