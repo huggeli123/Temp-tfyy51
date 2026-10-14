@@ -1,0 +1,379 @@
+[
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_unet_default_s100",
+  "model": "unet",
+  "seed": 100
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_unet_recipe_s100",
+  "model": "unet",
+  "seed": 100,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "steps": 1200,
+  "loss": "l1",
+  "warmup_fraction": 0.05
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_acc_t015_s100",
+  "seed": 100,
+  "initial_rho": -9.104296492593651,
+  "kl_weight": 3.747260354792137e-06,
+  "prior_standard_deviation": 0.26238547391836986,
+  "rho_learning_rate": 0.001554883442903665,
+  "learning_rate": 0.0006402240324212619,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_bal_t016_s100",
+  "seed": 100,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_unet_default_s101",
+  "model": "unet",
+  "seed": 101
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_unet_recipe_s101",
+  "model": "unet",
+  "seed": 101,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "steps": 1200,
+  "loss": "l1",
+  "warmup_fraction": 0.05
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_acc_t015_s101",
+  "seed": 101,
+  "initial_rho": -9.104296492593651,
+  "kl_weight": 3.747260354792137e-06,
+  "prior_standard_deviation": 0.26238547391836986,
+  "rho_learning_rate": 0.001554883442903665,
+  "learning_rate": 0.0006402240324212619,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_bal_t016_s101",
+  "seed": 101,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_unet_default_s102",
+  "model": "unet",
+  "seed": 102
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_unet_recipe_s102",
+  "model": "unet",
+  "seed": 102,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "steps": 1200,
+  "loss": "l1",
+  "warmup_fraction": 0.05
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_acc_t015_s102",
+  "seed": 102,
+  "initial_rho": -9.104296492593651,
+  "kl_weight": 3.747260354792137e-06,
+  "prior_standard_deviation": 0.26238547391836986,
+  "rho_learning_rate": 0.001554883442903665,
+  "learning_rate": 0.0006402240324212619,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_bal_t016_s102",
+  "seed": 102,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_rho10_default_s100",
+  "seed": 100,
+  "initial_rho": -10.0,
+  "rho_adam_eps": 1e-16
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_var_rho10_default_s101",
+  "seed": 101,
+  "initial_rho": -10.0,
+  "rho_adam_eps": 1e-16
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_bal_resblocks_s100",
+  "seed": 100,
+  "residual_blocks": true,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_bal_globalres_s100",
+  "seed": 100,
+  "global_residual": true,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_bal_lrt_s100",
+  "seed": 100,
+  "local_reparameterization": true,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_bal_resblocks_s101",
+  "seed": 101,
+  "residual_blocks": true,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_bal_globalres_s101",
+  "seed": 101,
+  "global_residual": true,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s3_bal_lrt_s101",
+  "seed": 101,
+  "local_reparameterization": true,
+  "initial_rho": -6.9254037363307175,
+  "kl_weight": 3.1185342515305612e-06,
+  "prior_standard_deviation": 0.02406410980219091,
+  "rho_learning_rate": 0.010229217739846471,
+  "learning_rate": 0.000846695164803876,
+  "activation": "leaky_relu",
+  "normalization": "group",
+  "batch_size": 8,
+  "loss": "l1",
+  "warmup_fraction": 0.05,
+  "kl_anneal_fraction": 0.3,
+  "gradient_clip": 0.0,
+  "steps": 1200,
+  "rho_adam_eps": 1e-16,
+  "crop": 96
+ }
+]
