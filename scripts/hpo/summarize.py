@@ -1,7 +1,7 @@
 """
 Print a table of proxy trials from one or more results.jsonl files.
 
-    python scripts/hpo/summarize.py docs/variational/hpo/stage1.jsonl [--sort]
+    python scripts/hpo/summarize.py results/hpo/stage1.jsonl [--sort]
 """
 
 import json

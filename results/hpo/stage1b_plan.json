@@ -1,0 +1,111 @@
+[
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_base_seed0",
+  "seed": 0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_base_seed1",
+  "seed": 1
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_kl1e-09",
+  "kl_weight": 1e-09
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_kl1e-07",
+  "kl_weight": 1e-07
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_kl1e-06",
+  "kl_weight": 1e-06
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_rho-6",
+  "initial_rho": -6.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_rho-10",
+  "initial_rho": -10.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_rholr0.001",
+  "rho_learning_rate": 0.001
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_rholr0.1",
+  "rho_learning_rate": 0.1
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_prior1",
+  "prior_standard_deviation": 1.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_kl1e-7_rho-10",
+  "kl_weight": 1e-07,
+  "initial_rho": -10.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "rho_adam_eps": 1e-16,
+  "tag": "s1b_eps_kl1.6e-8_bayes",
+  "kl_weight": 1.6e-08
+ }
+]

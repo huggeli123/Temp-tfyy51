@@ -68,6 +68,7 @@ DEFAULTS = {
     "warmup_fraction": 0.0,
     "gradient_clip": 0.0,
     "local_reparameterization": False,
+    "rho_adam_eps": None,
     # data
     "noise_std": 0.3,
     "augmentation": True,
@@ -318,6 +319,13 @@ def run_trial(overrides, log_path=None, report=None):
         p["optimizer"], model, p["learning_rate"], p["weight_decay"],
         p["rho_learning_rate"] if variational else None,
     )
+    if p["rho_adam_eps"] is not None and variational:
+        # The rho gradients of a large variational net with a tiny
+        # kl_weight are ~1e-14..1e-8, below Adam's default eps (1e-8), so
+        # Adam's step collapses and sigma never moves. A smaller eps for
+        # the rho group restores Adam's scale-free step.
+        assert len(optimizer.param_groups) == 2, "needs rho_learning_rate"
+        optimizer.param_groups[1]["eps"] = p["rho_adam_eps"]
     base_lrs = [g["lr"] for g in optimizer.param_groups]
     criterion = get_loss(p["loss"])
     mse = torch.nn.MSELoss()

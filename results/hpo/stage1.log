@@ -1,0 +1,5 @@
+24 of 24 trials to run
+s1_unet_seed0                            val_psnr=30.087701161702473 (21.4 min)
+s1_base_seed1                            val_psnr=29.58673350016276 (23.7 min)
+s1_base_seed2                            val_psnr=29.625228881835938 (23.7 min)
+s1_base_seed0                            val_psnr=29.745452245076496 (23.8 min)

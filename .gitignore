@@ -4,7 +4,9 @@
 *.tar
 ct_data*
 !ct_data.zip
-results/
+# Notebook runs stay local; the hyperparameter search results are kept
+results/*
+!results/hpo/
 .venv/
 
 # Personal editor settings (interpreter / environment manager choice)
