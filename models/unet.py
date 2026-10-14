@@ -80,6 +80,9 @@ class UNet(nn.Module):
         Number of encoder/downsampling levels.
     """
 
+    # Convolution block used at every level; subclasses may replace it
+    block_class = DoubleConv
+
     def __init__(
         self,
         channels=32,
@@ -112,7 +115,7 @@ class UNet(nn.Module):
             out_channels = channels * (2 ** level)
 
             self.encoders.append(
-                DoubleConv(
+                self.block_class(
                     in_channels=in_channels,
                     out_channels=out_channels,
                     kernel_size=kernel_size,
@@ -145,7 +148,7 @@ class UNet(nn.Module):
             channels * (2 ** depth)
         )
 
-        self.bottleneck = DoubleConv(
+        self.bottleneck = self.block_class(
             in_channels=in_channels,
             out_channels=bottleneck_channels,
             kernel_size=kernel_size,
@@ -187,7 +190,7 @@ class UNet(nn.Module):
             # =
             # 256 channels
             self.decoders.append(
-                DoubleConv(
+                self.block_class(
                     in_channels=skip_channels * 2,
                     out_channels=skip_channels,
                     kernel_size=kernel_size,

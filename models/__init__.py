@@ -3,6 +3,7 @@ from .nonlinear import NonLinearModel
 from .simple_cnn import SimpleCNN
 from .residual_cnn import ResidualCNN
 from .unet import UNet
+from .residual_unet import ResidualUNet
 from .variational_simple_cnn import VariationalSimpleCNN
 from .variational_unet import VariationalUNet
 from .variational_partial_unet import VariationalPartialUNet
@@ -127,6 +128,12 @@ def create_model(config):
     elif model_name == "unet":
 
         return UNet(
+            **model_args
+        )
+
+    elif model_name == "residual_unet":
+
+        return ResidualUNet(
             **model_args
         )
 

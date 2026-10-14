@@ -20,14 +20,15 @@ The notebook is the orchestrator; there is no top-level `main`. A run flows like
 
 1. `utils.misc.load_config` reads `config.yaml` (the main file edited per experiment), and `set_seed` seeds it.
 2. `utils.dataloader.create_dataloaders(config)` builds `CTDenoisingDataset` loaders for train/val/test.
-3. `models.create_model(config["model"])` is a factory over `linear`, `nonlinear`, `simple_cnn`, `residual_cnn`, `unet`. `linear` ignores activation/normalization; `linear` and `nonlinear` ignore parts of `depth`/`kernel_size` (see comments in `config.yaml`). Shared building blocks (activation/normalization selection) live in `models/layers.py`.
-4. `utils.model_configs.get_loss` / `get_optimizer` map config strings (`mse|l1|smooth_l1`, `adam|adamw|sgd`) to torch objects. To add an option, extend these if/elif chains.
-5. `train.train_model` runs epochs of `train_one_epoch` + `evaluate`, tracks PSNR (`utils.metrics.calculate_psnr`), saves `best_model.pt` by lowest **val loss**, and returns a history dict.
+3. `models.create_model(config["model"])` is a factory over `linear`, `nonlinear`, `simple_cnn`, `residual_cnn`, `unet`, `residual_unet` and the three variational models (see below). `linear` ignores activation/normalization; `linear` and `nonlinear` ignore parts of `depth`/`kernel_size` (see comments in `config.yaml`). Shared building blocks (activation/normalization selection) live in `models/layers.py`.
+4. `utils.model_configs.get_loss` / `get_optimizer` / `get_scheduler` map config strings (`mse|l1|smooth_l1`, `adam|adamw|sgd`, `training.scheduler`: `none|cosine`) to torch objects; `get_scheduler` returns `None` for `none`, and `cosine` is `CosineAnnealingLR` with `T_max=epochs`. To add an option, extend these if/elif chains.
+5. `train.train_model` runs epochs of `train_one_epoch` + `evaluate`, tracks PSNR (`utils.metrics.calculate_psnr`), saves `best_model.pt` by lowest **val loss**, and returns a history dict (also `epoch_time` and `learning_rates`). An optional `scheduler` is stepped once per epoch, after the learning rate for that epoch is recorded.
 6. `utils.experiment.create_experiment` makes `results/<experiment_name>/<timestamp>/` and snapshots the config there; `save_history` writes `results.json`. Plot helpers are in `utils/plot_utils.py` and `utils/print_utils.py`.
 
 ## Things to know
 
 - Noise is generated in `CTDenoisingDataset.__getitem__` (Gaussian, then clamped to [0, 1]); `noise.train_val_std` and `noise.test_std` are separate config keys. `deterministic_noise=True` seeds noise with `seed + index` so val/test noise is reproducible; training noise is fresh each load.
+- `evaluate` and `evaluate_variational` clamp predictions to [0, 1] before computing loss and PSNR; the training loops do not. So train and val loss are not computed quite the same way, and runs archived in `docs/variational/runs/` from before commit `dd0e84e` were evaluated without the clamp.
 - Augmentation (horizontal flip, rotation) applies only to the `train` split and only when `augmentation.enabled`. Clean and noisy images are derived from the same augmented clean image, so targets stay aligned.
 - Adding a model: create the class in `models/`, export it in `models/__init__.py`, and add a branch in `create_model`; models take `channels, depth, activation, normalization, num_groups, kernel_size`.
 - `output.directory` in `config.yaml` (`outputs`) is the default for `train_model`'s `output_dir`; the README describes notebook results going under `results/`.
