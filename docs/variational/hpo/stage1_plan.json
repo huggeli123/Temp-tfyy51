@@ -1,0 +1,196 @@
+[
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_base_seed0",
+  "seed": 0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_base_seed1",
+  "seed": 1
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_base_seed2",
+  "seed": 2
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_unet_seed0",
+  "model": "unet"
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_unet_seed1",
+  "model": "unet",
+  "seed": 1
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_archived_full_tuned",
+  "kl_weight": 1e-06,
+  "rho_learning_rate": null
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_kl0",
+  "kl_weight": 0.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_kl1e-09",
+  "kl_weight": 1e-09
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_kl1e-07",
+  "kl_weight": 1e-07
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_kl1e-06",
+  "kl_weight": 1e-06
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rho-6",
+  "initial_rho": -6.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rho-7",
+  "initial_rho": -7.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rho-9",
+  "initial_rho": -9.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rho-10",
+  "initial_rho": -10.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rholrNone",
+  "rho_learning_rate": null
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rholr0.003",
+  "rho_learning_rate": 0.003
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rholr0.03",
+  "rho_learning_rate": 0.03
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_rholr0.1",
+  "rho_learning_rate": 0.1
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_prior0.01",
+  "prior_standard_deviation": 0.01
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_prior0.03",
+  "prior_standard_deviation": 0.03
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_prior1",
+  "prior_standard_deviation": 1.0
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_lr0.0003",
+  "learning_rate": 0.0003
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_lr0.002",
+  "learning_rate": 0.002
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s1_lr0.004",
+  "learning_rate": 0.004
+ }
+]
