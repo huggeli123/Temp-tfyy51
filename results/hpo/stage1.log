@@ -9,3 +9,4 @@ s1_archived_full_tuned                   val_psnr=29.678701400756836 (23.5 min)
 s1_kl0                                   val_psnr=29.459280649820965 (23.7 min)
 /usr/lib/python3.13/multiprocessing/resource_tracker.py:479: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown: {'/mp-7u2dp25b', '/mp-xnun3usr', '/mp-5sdbulvw', '/mp-7s_529ar', '/mp-vfat3jp8', '/mp-i1qxmwcp'}
   warnings.warn(
+16 of 24 trials to run
