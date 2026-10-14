@@ -1,0 +1,13 @@
+12 of 12 trials to run
+s1b_eps_base_seed1                       val_psnr=29.816020329793293 (19.4 min)
+s1b_eps_base_seed0                       val_psnr=29.588287989298504 (19.6 min)
+s1b_eps_kl1e-07                          val_psnr=29.648197174072266 (19.6 min)
+s1b_eps_kl1e-09                          val_psnr=29.492612838745117 (19.6 min)
+s1b_eps_rho-6                            val_psnr=29.52811050415039 (19.4 min)
+s1b_eps_kl1e-06                          val_psnr=29.728005091349285 (19.8 min)
+s1b_eps_rholr0.001                       val_psnr=29.59449831644694 (19.7 min)
+s1b_eps_rho-10                           val_psnr=30.094585418701172 (19.7 min)
+s1b_eps_prior1                           val_psnr=29.725003560384113 (20.4 min)
+s1b_eps_kl1e-7_rho-10                    val_psnr=29.909619013468426 (20.4 min)
+s1b_eps_rholr0.1                         val_psnr=16.37761688232422 (20.8 min)
+s1b_eps_kl1.6e-8_bayes                   val_psnr=29.556881586710613 (20.4 min)
