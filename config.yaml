@@ -13,8 +13,8 @@ noise:
   test_std: 0.3
 
 
-model: # Options: [linear, nonlinear, residual_cnn, simple_cnn, unet, variational_simple_cnn, variational_unet, variational_partial_unet]
-  name: variational_partial_unet
+model: # Options: [linear, nonlinear, residual_cnn, simple_cnn, unet, residual_unet, variational_simple_cnn, variational_unet, variational_partial_unet]
+  name: residual_unet
 
   # Number of feature maps/channels in hidden layers.
   # Ignored only by the linear model.
@@ -70,12 +70,12 @@ augmentation:
   rotation_degrees: 10
 
 training:
-  epochs: 30
+  epochs: 80
   batch_size: 16
   num_workers: 0
 
   # Options: [none, cosine]
-  scheduler: none 
+  scheduler: cosine
 
   # Options: [adam, adamw, sgd]
   optimizer: adam
