@@ -181,7 +181,45 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_l1_s100",
+  "tag": "s4_bs8_cosine_s100",
+  "seed": 100,
+  "batch_size": 8,
+  "steps": 1200,
+  "activation": "relu",
+  "normalization": "none",
+  "loss": "mse",
+  "initial_rho": -8.0,
+  "prior_standard_deviation": 0.1,
+  "kl_weight": 1e-08,
+  "rho_learning_rate": 0.01,
+  "learning_rate": 0.001,
+  "scheduler": "cosine"
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s4_bs8_cosine_s101",
+  "seed": 101,
+  "batch_size": 8,
+  "steps": 1200,
+  "activation": "relu",
+  "normalization": "none",
+  "loss": "mse",
+  "initial_rho": -8.0,
+  "prior_standard_deviation": 0.1,
+  "kl_weight": 1e-08,
+  "rho_learning_rate": 0.01,
+  "learning_rate": 0.001,
+  "scheduler": "cosine"
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s4_bs8_l1_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -193,15 +231,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_l1_s101",
+  "tag": "s4_bs8_l1_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -213,35 +250,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_l1_s102",
-  "seed": 102,
-  "batch_size": 8,
-  "steps": 1200,
-  "activation": "relu",
-  "normalization": "none",
-  "loss": "l1",
-  "initial_rho": -8.0,
-  "prior_standard_deviation": 0.1,
-  "kl_weight": 1e-08,
-  "rho_learning_rate": 0.01,
-  "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
- },
- {
-  "eval_fractions": [
-   0.5,
-   1.0
-  ],
-  "tag": "s4_eps_group_s100",
+  "tag": "s4_bs8_group_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -253,15 +269,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_group_s101",
+  "tag": "s4_bs8_group_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -273,35 +288,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_group_s102",
-  "seed": 102,
-  "batch_size": 8,
-  "steps": 1200,
-  "activation": "relu",
-  "normalization": "group",
-  "loss": "mse",
-  "initial_rho": -8.0,
-  "prior_standard_deviation": 0.1,
-  "kl_weight": 1e-08,
-  "rho_learning_rate": 0.01,
-  "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
- },
- {
-  "eval_fractions": [
-   0.5,
-   1.0
-  ],
-  "tag": "s4_eps_leaky_s100",
+  "tag": "s4_bs8_leaky_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -313,15 +307,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_leaky_s101",
+  "tag": "s4_bs8_leaky_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -333,15 +326,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_warmup_klanneal_s100",
+  "tag": "s4_bs8_warmup_klanneal_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -354,7 +346,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "warmup_fraction": 0.05,
   "kl_anneal_fraction": 0.3
  },
@@ -363,7 +354,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_warmup_klanneal_s101",
+  "tag": "s4_bs8_warmup_klanneal_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -376,7 +367,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "warmup_fraction": 0.05,
   "kl_anneal_fraction": 0.3
  },
@@ -385,7 +375,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_kl1e-7_s100",
+  "tag": "s4_eps_kl1e-9_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -394,7 +384,7 @@
   "loss": "mse",
   "initial_rho": -8.0,
   "prior_standard_deviation": 0.1,
-  "kl_weight": 1e-07,
+  "kl_weight": 1e-09,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
@@ -405,7 +395,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_kl1e-7_s101",
+  "tag": "s4_eps_kl1e-9_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -414,7 +404,7 @@
   "loss": "mse",
   "initial_rho": -8.0,
   "prior_standard_deviation": 0.1,
-  "kl_weight": 1e-07,
+  "kl_weight": 1e-09,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
@@ -425,7 +415,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_kl1e-6_s100",
+  "tag": "s4_eps_kl1e-10_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -434,7 +424,7 @@
   "loss": "mse",
   "initial_rho": -8.0,
   "prior_standard_deviation": 0.1,
-  "kl_weight": 1e-06,
+  "kl_weight": 1e-10,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
@@ -445,7 +435,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_kl1e-6_s101",
+  "tag": "s4_eps_kl1e-10_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -454,7 +444,7 @@
   "loss": "mse",
   "initial_rho": -8.0,
   "prior_standard_deviation": 0.1,
-  "kl_weight": 1e-06,
+  "kl_weight": 1e-10,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
@@ -465,7 +455,87 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_rho-7_s100",
+  "tag": "s4_eps_rholr1e-3_s100",
+  "seed": 100,
+  "batch_size": 8,
+  "steps": 1200,
+  "activation": "relu",
+  "normalization": "none",
+  "loss": "mse",
+  "initial_rho": -8.0,
+  "prior_standard_deviation": 0.1,
+  "kl_weight": 1e-08,
+  "rho_learning_rate": 0.001,
+  "learning_rate": 0.001,
+  "scheduler": "none",
+  "rho_adam_eps": 1e-16
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s4_eps_rholr1e-3_s101",
+  "seed": 101,
+  "batch_size": 8,
+  "steps": 1200,
+  "activation": "relu",
+  "normalization": "none",
+  "loss": "mse",
+  "initial_rho": -8.0,
+  "prior_standard_deviation": 0.1,
+  "kl_weight": 1e-08,
+  "rho_learning_rate": 0.001,
+  "learning_rate": 0.001,
+  "scheduler": "none",
+  "rho_adam_eps": 1e-16
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s4_eps_kl1e-9_rho-7_s100",
+  "seed": 100,
+  "batch_size": 8,
+  "steps": 1200,
+  "activation": "relu",
+  "normalization": "none",
+  "loss": "mse",
+  "initial_rho": -7.0,
+  "prior_standard_deviation": 0.1,
+  "kl_weight": 1e-09,
+  "rho_learning_rate": 0.01,
+  "learning_rate": 0.001,
+  "scheduler": "none",
+  "rho_adam_eps": 1e-16
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s4_eps_kl1e-9_rho-7_s101",
+  "seed": 101,
+  "batch_size": 8,
+  "steps": 1200,
+  "activation": "relu",
+  "normalization": "none",
+  "loss": "mse",
+  "initial_rho": -7.0,
+  "prior_standard_deviation": 0.1,
+  "kl_weight": 1e-09,
+  "rho_learning_rate": 0.01,
+  "learning_rate": 0.001,
+  "scheduler": "none",
+  "rho_adam_eps": 1e-16
+ },
+ {
+  "eval_fractions": [
+   0.5,
+   1.0
+  ],
+  "tag": "s4_bs8_rho-7_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -477,15 +547,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_rho-7_s101",
+  "tag": "s4_bs8_rho-7_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -497,15 +566,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_rho-6.5_s100",
+  "tag": "s4_bs8_rho-6.5_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -517,15 +585,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_rho-6.5_s101",
+  "tag": "s4_bs8_rho-6.5_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -537,15 +604,14 @@
   "kl_weight": 1e-08,
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
-  "scheduler": "none",
-  "rho_adam_eps": 1e-16
+  "scheduler": "none"
  },
  {
   "eval_fractions": [
    0.5,
    1.0
   ],
-  "tag": "s4_eps_resblocks_s100",
+  "tag": "s4_bs8_resblocks_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -558,7 +624,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "residual_blocks": true
  },
  {
@@ -566,7 +631,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_resblocks_s101",
+  "tag": "s4_bs8_resblocks_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -579,7 +644,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "residual_blocks": true
  },
  {
@@ -587,7 +651,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_globalres_s100",
+  "tag": "s4_bs8_globalres_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -600,7 +664,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "global_residual": true
  },
  {
@@ -608,7 +671,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_globalres_s101",
+  "tag": "s4_bs8_globalres_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -621,7 +684,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "global_residual": true
  },
  {
@@ -629,7 +691,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_lrt_s100",
+  "tag": "s4_bs8_lrt_s100",
   "seed": 100,
   "batch_size": 8,
   "steps": 1200,
@@ -642,7 +704,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "local_reparameterization": true
  },
  {
@@ -650,7 +711,7 @@
    0.5,
    1.0
   ],
-  "tag": "s4_eps_lrt_s101",
+  "tag": "s4_bs8_lrt_s101",
   "seed": 101,
   "batch_size": 8,
   "steps": 1200,
@@ -663,7 +724,6 @@
   "rho_learning_rate": 0.01,
   "learning_rate": 0.001,
   "scheduler": "none",
-  "rho_adam_eps": 1e-16,
   "local_reparameterization": true
  }
 ]
