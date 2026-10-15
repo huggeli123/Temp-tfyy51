@@ -230,7 +230,7 @@ At σ = 0.0003 the change in loss is at the limit of what the measurement resolv
 
 ## 6.8 Settings for the other two models
 
-**`variational_unet`.** Tested once with `initial_rho: -8.0`, `prior_standard_deviation: 0.1`, `kl_weight: 0.000001`, no `rho_learning_rate` (the run `full_tuned`): test loss 11% to 15% above the plain UNet, with no visible uncertainty. By the cost rule in [section 6.3](#applying-the-rule), β = 10⁻⁶ is still about 100 times too large for 1.9 million weights. A value near 10⁻⁸ together with `rho_learning_rate: 0.01` is the untested combination most likely to improve it.
+**`variational_unet`.** Tested once with `initial_rho: -8.0`, `prior_standard_deviation: 0.1`, `kl_weight: 0.000001`, no `rho_learning_rate` (the run `full_tuned`): test loss 11% to 15% above the plain UNet, with no visible uncertainty. By the cost rule in [section 6.3](#applying-the-rule), β = 10⁻⁶ is still about 100 times too large for 1.9 million weights. A value near 10⁻⁸ together with `rho_learning_rate: 0.01` is the untested combination most likely to improve it. That combination has since been tested in a full sweep; see [08_variational_unet_sweep.md](08_variational_unet_sweep.md) for the recommended `variational_unet` setting (batch size 8 is the main gain).
 
 **`variational_simple_cnn`.** No run is recorded. With only 289 variational weights, the cost rule gives 2% at β ≈ 7.6 × 10⁻⁵ (taking a loss of 0.00083 as the reference, which this smaller model will not reach). Its variational layer has fan_in 288, so weight std 0.034 and a suitable `initial_rho` of about -6.5 to -7.
 

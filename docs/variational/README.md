@@ -15,6 +15,7 @@ The base models (`linear`, `nonlinear`, `simple_cnn`, `residual_cnn`, `unet`) an
 | [05_uncertainty.md](05_uncertainty.md) | `predict_with_uncertainty`, the uncertainty plot, how to read the numbers, and what they do not mean |
 | [06_hyperparameters.md](06_hyperparameters.md) | Every variational config key, how its value was chosen, and a tuning guide |
 | [07_experiments.md](07_experiments.md) | All runs so far with exact numbers, what they showed, and open questions |
+| [08_variational_unet_sweep.md](08_variational_unet_sweep.md) | Hyperparameter sweep for `variational_unet` (screen, Bayesian search with Optuna, three-seed confirmation) and the setting it recommends |
 
 If you only read one file, read [06_hyperparameters.md](06_hyperparameters.md). The single most important fact in this folder is there: the variational settings are extremely scale-sensitive, and the defaults that look natural (`kl_weight: 0.1`, `initial_rho: -5`, every layer variational) make the model clearly worse than a plain UNet. If you read two, add [07_experiments.md](07_experiments.md) for what the models did and did not achieve.
 

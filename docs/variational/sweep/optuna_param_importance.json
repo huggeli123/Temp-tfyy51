@@ -1,0 +1,10 @@
+{
+  "prior_standard_deviation": 0.4032347465304797,
+  "rho_learning_rate": 0.19128015599529455,
+  "learning_rate": 0.14900664506426237,
+  "initial_rho": 0.1208833259261576,
+  "kl_weight": 0.09538096650565506,
+  "activation": 0.031122032514034722,
+  "scheduler": 0.005228861297972075,
+  "batch_size": 0.003863266166143946
+}

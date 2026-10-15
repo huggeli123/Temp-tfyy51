@@ -1,0 +1,38 @@
+seed: 44
+data:
+  root: ct_data
+  image_size: null
+noise:
+  train_val_std: 0.3
+  test_std: 0.3
+model:
+  name: variational_unet
+  channels: 32
+  depth: 3
+  kernel_size: 3
+  activation: gelu
+  normalization: none
+  num_groups: 4
+  prior_standard_deviation: 0.1
+  initial_rho: -10.0
+  variational_decoder_levels: 1
+augmentation:
+  enabled: true
+  horizontal_flip: true
+  horizontal_flip_probability: 0.5
+  rotation_degrees: 10
+training:
+  epochs: 40
+  batch_size: 8
+  num_workers: 0
+  scheduler: cosine
+  optimizer: adam
+  learning_rate: 0.001
+  weight_decay: 0.0
+  loss: mse
+  kl_weight: 1.0e-08
+  rho_learning_rate: 0.01
+output:
+  directory: outputs
+  save_best_model: true
+  save_example_images: true

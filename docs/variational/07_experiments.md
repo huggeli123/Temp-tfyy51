@@ -214,7 +214,7 @@ In rough order of value for the report:
 
 1. **More seeds.** Five or more each of `unet` and the partial model with learned σ, to turn "between 1% and 14%" into a number with a spread. One command per run: `python scripts/run_notebook.py --set seed=44`.
 2. **Deterministic training.** Seeded runs drift apart on the GPU. Setting `torch.backends.cudnn.deterministic = True` in `set_seed` would probably make a seeded run repeat exactly, at some cost in speed. That would make paired comparisons, such as the one for the ρ learning rate, far sharper. It has not been tried.
-3. **A fair retest of `variational_unet`**: `kl_weight` near 1e-08 with `rho_learning_rate: 0.01`. It is the only model whose uncertainty reacted to unfamiliar input, and it has not been run with a learned σ.
+3. **A fair retest of `variational_unet`**: `kl_weight` near 1e-08 with `rho_learning_rate: 0.01`. It is the only model whose uncertainty reacted to unfamiliar input, and it has not been run with a learned σ. *Done: see [08_variational_unet_sweep.md](08_variational_unet_sweep.md).*
 4. **`variational_decoder_levels: 2` or `3`**, with `kl_weight` reduced in proportion to the number of variational weights. Does the std start to react to the noise level as more of the network is sampled?
 5. **A `kl_weight` sweep** (1e-07, 1e-06, 1e-05) on the partial model, to check the predicted trade-off between std and loss.
 6. **Longer training.** σ had not settled after 30 epochs.
