@@ -77,6 +77,10 @@ class VariationalConv2d(nn.Module):
     ):
         super().__init__()
 
+        # An integer from the YAML (-8 instead of -8.0) would make an
+        # integer tensor below, which cannot require gradients
+        initial_rho = float(initial_rho)
+
         if in_channels % groups != 0 or out_channels % groups != 0:
             raise ValueError(
                 "in_channels and out_channels must be divisible by groups"
@@ -192,6 +196,10 @@ class VariationalConvTranspose2d(nn.Module):
     ):
         super().__init__()
 
+        # An integer from the YAML (-8 instead of -8.0) would make an
+        # integer tensor below, which cannot require gradients
+        initial_rho = float(initial_rho)
+
         kernel_height, kernel_width = _pair(kernel_size)
 
         self.in_channels = in_channels
@@ -296,6 +304,10 @@ class VariationalLinear(nn.Module):
         initial_rho=-5.0,
     ):
         super().__init__()
+
+        # An integer from the YAML (-8 instead of -8.0) would make an
+        # integer tensor below, which cannot require gradients
+        initial_rho = float(initial_rho)
 
         self.in_features = in_features
         self.out_features = out_features
