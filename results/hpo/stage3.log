@@ -1,0 +1,14 @@
+20 of 20 trials to run
+s3_unet_default_s100                     val_psnr=29.523218154907227 (16.9 min)
+s3_unet_recipe_s100                      val_psnr=30.09678840637207 (17.7 min)
+s3_var_acc_t015_s100                     val_psnr=29.94590441385905 (20.7 min)
+s3_var_bal_t016_s100                     val_psnr=29.741267522176106 (20.7 min)
+s3_unet_default_s101                     val_psnr=29.73516782124837 (16.8 min)
+s3_unet_recipe_s101                      val_psnr=30.094430923461914 (17.4 min)
+s3_var_bal_t016_s101                     val_psnr=29.861658732096355 (19.7 min)
+s3_var_acc_t015_s101                     val_psnr=30.182327270507812 (20.0 min)
+s3_unet_default_s102                     val_psnr=29.49458948771159 (16.6 min)
+s3_unet_recipe_s102                      val_psnr=29.759288152058918 (16.7 min)
+s3_var_acc_t015_s102                     val_psnr=29.77741813659668 (19.5 min)
+s3_var_bal_t016_s102                     val_psnr=29.418505986531574 (19.8 min)
+8 of 20 trials to run
